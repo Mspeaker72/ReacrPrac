@@ -1,0 +1,53 @@
+.Card{
+  border: 0px solid black;
+  border-radius: 10px;
+  border-width: 4px;
+  margin: 10px;
+  max-width: 250px;
+  padding: 3px;
+  display: inline-block;
+  background-color: grey;
+  height: fit-content;
+  
+}
+
+div.Card{
+  width:min-content;
+}
+
+.Card-text {
+  
+  font-weight: bold; 
+  margin-right: 10px; 
+  border: 0px solid black;
+  border-radius: 10px;
+  border-width: 1px;
+  width: 100%;
+  background-color: orangered;
+}
+
+.Card-button {
+  width: 100%;
+  background-color: greenyellow;
+  border: 0px solid black;
+  border-radius: 10px;
+  border-width: 4px;
+  
+}
+
+
+
+
+.Card .Card-img{
+  border-width: 4px;
+  border-color: black;
+  border-radius: 5px;
+  max-width: 500px;
+  max-height: 500px;
+  
+
+}
+
+
+
+
