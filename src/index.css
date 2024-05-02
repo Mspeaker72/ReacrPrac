@@ -12,7 +12,7 @@
 }
 
 div.Card{
-  width:min-content;
+  width:max-content;
 }
 
 .Card-text {
@@ -26,14 +26,7 @@ div.Card{
   background-color: orangered;
 }
 
-.Card-button {
-  width: 100%;
-  background-color: greenyellow;
-  border: 0px solid black;
-  border-radius: 10px;
-  border-width: 4px;
-  
-}
+
 
 
 
@@ -42,12 +35,42 @@ div.Card{
   border-width: 4px;
   border-color: black;
   border-radius: 5px;
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
   
+  
+
 
 }
 
+.Card-button {
+  width: 100%;
+  background-color: greenyellow;
+  border: 0px solid black;
+  border-radius: 10px;
+  border-width: 1px;
+  cursor: pointer;
+  
+}
 
+.Card-button-sold {
+  width: 100%;
+  background-color:red;
+  border: 0px solid black;
+  border-radius: 10px;
+  border-width: 1px;
+  cursor: pointer;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
+}
 
+.horizontal-list {
+  list-style-type: none; /* Removes default list styling */
+  padding: 0; /* Removes default padding */
+}
 
+.horizontal-list li {
+  display: inline-block; /* Display list items horizontally */
+  margin-right: 10px; /* Add spacing between list items */
+}
