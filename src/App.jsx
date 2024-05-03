@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import Card from "./component/Card.jsx"
 import List from "./component/List.jsx"
-import Button from "./component/Button.jsx";
+import Button from "./component/button.jsx";
 
 function App() {
   const [filter, setFilter] = useState(false);
+  const [numerical, setnum] = useState("");
  
+  // function availabilityOrder(){
+  //   setnum(prevNum=>!prevNum)
+  // }
 
   function soldOut(text) {
     alert(text+" is sold out!")
@@ -35,11 +39,19 @@ function updateStock(gameTitle) {
       // Check if the game title matches the title of the current card.
       if (card.props.text === gameTitle) {
         // If the stock for the game is greater than 1, decrement the stock by 1.
+        if (card.props.stock <= 5 && card.props.stock >1) {
+          const updatedStock = card.props.stock - 1;
+          const limited = "Card-button-limited"; // Change className if stock is less than 5
+          // oranged for limited stock
+          return { ...card, props: { ...card.props,className:limited ,stock: updatedStock } };
+        } 
+
         if (card.props.stock > 1) {
           const updatedStock = card.props.stock - 1;
           // Return a new card object with the updated stock.
           return { ...card, props: { ...card.props, stock: updatedStock } };
-        } else {
+        }
+        else {
           // If the stock is 1 or less, set the availability to false (game is sold out).
           return { ...card, props: { ...card.props, availability: false } };
         }
@@ -57,8 +69,9 @@ function updateStock(gameTitle) {
 
   return (
     <>
-      <List arr={games_} trigger={filter}></List>
-      <Button text={"Filter"} onClick={switchFilter}></Button>
+      
+      <List stock={numerical} arr={games_} trigger={filter}></List>
+      <Button text={"Filter"} onClick={switchFilter} ></Button>
     </>
   );
 }

@@ -54,6 +54,17 @@ div.Card{
   
 }
 
+.Card-button-limited {
+  width: 100%;
+  background-color: orangered;
+  border: 0px solid black;
+  border-radius: 10px;
+  border-width: 1px;
+  cursor: pointer;
+  
+}
+
+
 .Card-button-sold {
   width: 100%;
   background-color:red;

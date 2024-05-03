@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Button from "./Button";
+import Button from "./button";
 import Proptypes from "prop-types"
 
-function Card({img_src,text,funct,availability,updateStock,stock}){
+function Card({img_src,text,funct,availability,updateStock,stock,className="Card-button"}){
 
     const handleClick = () => {
         console.log(stock)
@@ -10,7 +10,7 @@ function Card({img_src,text,funct,availability,updateStock,stock}){
       };
     
 
-    const canBuy = <Button onClick={handleClick}
+    const canBuy = <Button onClick={handleClick} className={className}
     text={"Buy"}>
     </Button>
 
