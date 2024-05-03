@@ -1,12 +1,16 @@
 import { useState } from "react";
-import Button from "./button";
+import Button from "./Button";
 import Proptypes from "prop-types"
 
-function Card({img_src,text,funct}){
+function Card({img_src,text,funct,availability,updateStock,stock}){
 
-    const [availability,setAvaliablity]=useState(true);
+    const handleClick = () => {
+        console.log(stock)
+        updateStock(text); 
+      };
+    
 
-    const canBuy = <Button onClick={setAvaliablity}  
+    const canBuy = <Button onClick={handleClick}
     text={"Buy"}>
     </Button>
 
@@ -21,6 +25,7 @@ function Card({img_src,text,funct}){
         <div className="Card">
             <img className="Card-img"src={img_src}></img>
             <p className="Card-text">{text}</p>
+            <p hidden={true}>{stock}</p>
             {availability ? canBuy : soldOut}
         </div>
         
