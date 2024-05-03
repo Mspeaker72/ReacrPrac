@@ -5,7 +5,7 @@ import Button from "./component/Button.jsx";
 
 function App() {
   const [filter, setFilter] = useState(false);
-  const [gameStock, setStock] = useState(10);
+ 
 
   function soldOut(text) {
     alert(text+" is sold out!")
@@ -18,9 +18,9 @@ function App() {
 
   const games =  [
     <Card availability={8>0} stock={6}funct={()=>soldOut("SIMS4")} updateStock={updateStock} img_src={"src/assets/THS4.jpg"} text={"SIMS4"}></Card>,
-    <Card availability={1>0} stock={1}funct={confirm} updateStock={updateStock}img_src={"src/assets/GTA.jpg"} text={"TEKKEN 7"}></Card>,
+    <Card availability={1>0} stock={1}funct={()=>soldOut("Tekken:7")} updateStock={updateStock}img_src={"src/assets/GTA.jpg"} text={"TEKKEN 7"}></Card>,
     <Card availability={19>0} stock={19} updateStock={updateStock} img_src={"src/assets/Island.jpg"} text={"TS4:Island living"}></Card>,
-    <Card availability={gameStock>0} stock={gameStock} updateStock={updateStock} img_src={"src/assets/DOA.jpg"} text={"DOA"}></Card>
+    <Card availability={5>0} stock={5} updateStock={updateStock} img_src={"src/assets/DOA.jpg"} text={"DOA"}></Card>
   ];
 
   const [games_, setGames] = useState(games);
@@ -49,27 +49,9 @@ function updateStock(gameTitle) {
     });
   });
   
-  // Decrement the overall stock count.
-  setStock(prevStock => prevStock - 1);
 }
 
-  function updateStock(gameTitle) {
-    setGames(prevGames => {
-      return prevGames.map(card => {
-        if (card.props.text === gameTitle) {
-          if (card.props.stock > 1) {
-            const updatedStock = card.props.stock - 1;
-            return { ...card, props: { ...card.props, stock: updatedStock } };
-          } else {
-            return { ...card, props: { ...card.props, availability: false } };
-          }
-        }
-        return card;
-      });
-    });
-  
-    setStock(prevStock => prevStock - 1);
-  }
+
   
   
 
