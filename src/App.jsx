@@ -3,14 +3,31 @@ import Card from "./component/Card.jsx"
 import List from "./component/List.jsx"
 import Button from "./component/button.jsx";
 import Banner from "./component/Banner.jsx";
+import { getGamesData } from './component/GameData.js';
+
+
+//TODO 
+// const gamesData = getGamesData();
+
+// const games = gamesData.map((game, index) => (
+//   <Card
+//     key={index}
+//     availability={game.availability > 0}
+//     stock={game.stock}
+//     funct={() => soldOut(game.name)}
+//     updateStock={updateStock}
+//     img_src={game.img_src}
+//     text={game.text}
+//   />
+// ));
+
+
 
 function App() {
   const [filter, setFilter] = useState(false);
   const [numerical, setnum] = useState("");
  
-  // function availabilityOrder(){
-  //   setnum(prevNum=>!prevNum)
-  // }
+
 
   function soldOut(text) {
     alert(text+" is sold out!")
