@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Card from "./component/Card.jsx"
 import List from "./component/List.jsx"
 import Button from "./component/button.jsx";
+import Banner from "./component/Banner.jsx";
 
 function App() {
   const [filter, setFilter] = useState(false);
@@ -69,9 +70,12 @@ function updateStock(gameTitle) {
 
   return (
     <>
+    
+      {games_.length > 0 && <Button text={"Filter"} onClick={switchFilter} ></Button>}
+      {games_.length > 0 ? <List stock={numerical} arr={games_} trigger={filter}></List> 
+      : <Banner className="maintenance-banner" img_src="src\assets\maintenanceBanner.jpeg"></Banner>}
       
-      <List stock={numerical} arr={games_} trigger={filter}></List>
-      <Button text={"Filter"} onClick={switchFilter} ></Button>
+      <footer className="footer"><p>&copy;Mspeaker Productions</p></footer>
     </>
   );
 }

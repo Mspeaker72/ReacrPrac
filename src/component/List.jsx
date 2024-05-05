@@ -17,7 +17,7 @@ function List ({arr , trigger,stock}){
    
   
 
-    return( <ul className="horizontal-list">{me}</ul>
+    return(  arr.length > 0  && <ul className="horizontal-list">{me}</ul>
         );
 }
 

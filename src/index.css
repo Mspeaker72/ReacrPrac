@@ -6,7 +6,7 @@
   max-width: 250px;
   padding: 3px;
   display: inline-block;
-  background-color: grey;
+  background-color: rgb(90, 71, 71);
   height: fit-content;
   
 }
@@ -27,7 +27,9 @@ div.Card{
 }
 
 
-
+body{
+  background-color: rgb(141, 135, 135);
+}
 
 
 
@@ -84,4 +86,42 @@ div.Card{
 .horizontal-list li {
   display: inline-block; /* Display list items horizontally */
   margin-right: 10px; /* Add spacing between list items */
+}
+
+.maintenance-banner {
+  background-color: #ffcc00; /* Yellow background */
+  color: #333; /* Dark text color */
+  padding: 10px; /* Padding around the text */
+  text-align: center; /* Center align the text */
+  font-weight: bold; /* Bold text */
+  position: fixed; /* Fixed position to make it cover the whole screen */
+  left: 50%; /* Position from the left at 50% */
+  top: 50%; /* Position from the top at 50% */
+  width: 100%;
+  transform: translate(-50%, -50%); /* Center the banner */
+  z-index: 9999; /* Ensure it's on top of other content */
+}
+
+
+
+
+.footer {
+  background-color: #333; /* Dark background color */
+  color: #fff; /* Light text color */
+  padding: 20px; /* Padding around the content */
+  position: fixed; /* Fixed position to stick at the bottom */
+  left: 0; /* Stick to the left */
+  bottom: 0; /* Stick to the bottom */
+  width: 100%; /* Take up the full width of the viewport */
+}
+
+
+.footer p {
+  margin: 0; 
+  text-align: center;
+}
+
+
+.footer p:hover {
+  color: greenyellow
 }
