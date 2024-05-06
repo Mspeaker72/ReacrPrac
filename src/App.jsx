@@ -6,21 +6,8 @@ import Banner from "./component/Banner.jsx";
 import { getGamesData } from './component/GameData.js';
 
 
-//TODO 
-// const gamesData = getGamesData();
 
-// const games = gamesData.map((game, index) => (
-//   <Card
-//     key={index}
-//     availability={game.availability > 0}
-//     stock={game.stock}
-//     funct={() => soldOut(game.name)}
-//     updateStock={updateStock}
-//     img_src={game.img_src}
-//     text={game.text}
-//   />
-// ));
-
+const gamesData = getGamesData();
 
 
 function App() {
@@ -38,12 +25,12 @@ function App() {
     setFilter(prevFilter => !prevFilter);
   }
 
-  const games =  [
-    <Card availability={8>0} stock={6}funct={()=>soldOut("SIMS4")} updateStock={updateStock} img_src={"src/assets/THS4.jpg"} text={"SIMS4"}></Card>,
-    <Card availability={1>0} stock={1}funct={()=>soldOut("Tekken:7")} updateStock={updateStock}img_src={"src/assets/GTA.jpg"} text={"TEKKEN 7"}></Card>,
-    <Card availability={19>0} stock={19} updateStock={updateStock} img_src={"src/assets/Island.jpg"} text={"TS4:Island living"}></Card>,
-    <Card availability={5>0} stock={5} updateStock={updateStock} img_src={"src/assets/DOA.jpg"} text={"DOA"}></Card>
-  ];
+  const games =  gamesData.map((game)=>(<Card availability={game.stock>0}
+  stock={game.stock} funct={()=>soldOut(game.name)} updateStock={updateStock}
+  img_src={game.img_src} text={game.text}>
+
+
+  </Card>));
 
   const [games_, setGames] = useState(games);
 
@@ -80,10 +67,6 @@ function updateStock(gameTitle) {
   });
   
 }
-
-
-  
-  
 
   return (
     <>
