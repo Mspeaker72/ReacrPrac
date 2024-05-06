@@ -125,3 +125,29 @@ body{
 .footer p:hover {
   color: greenyellow
 }
+
+.user {
+  text-align: left;
+  color:greenyellow;
+  display: inline-block;
+  
+}
+
+.profile_img {
+  float: right;
+  height: 50px;
+  width: 50px;
+  display: inline-flex;
+  border-radius: 50px;
+
+}
+
+.profile_border{
+  background-color: #4d4b4b; /* Dark background color */
+  padding: 5px; /* Padding around the content */
+  border-radius: 20px;
+  left: 0; 
+  right: 0; 
+  width: 100%; /* Take up the full width of the viewport */
+  
+}

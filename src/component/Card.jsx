@@ -21,9 +21,9 @@ function Card({img_src,text,funct,availability,updateStock,stock,className="Card
     return (
        
         <>
-        
+        {/* onClick={(event)=>event.target.src="src/assets/DOA.jpg"} change image on click just event handling */}
         <div className="Card">
-            <img className="Card-img"src={img_src}></img>
+            <img  className="Card-img"src={img_src}></img>
             <p className="Card-text">{text}</p>
             <p hidden={true}>{stock}</p>
             {availability ? canBuy : soldOut}

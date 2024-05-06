@@ -1,7 +1,7 @@
 import Proptypes from "prop-types"
-function Button({className="Card-button",text,onClick = ()=> console.log("click me")}){
+function Button({className="Card-button",text,onClick = ()=> console.log("click me"),hidden=false}){
 
-    return (<button onClick={()=>onClick()} className={className} value={text}>{text}</button>);
+    return (<button hidden={hidden} onClick={()=>onClick()} className={className} value={text}>{text}</button>);
 
 }
 

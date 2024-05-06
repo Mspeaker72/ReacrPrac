@@ -4,6 +4,7 @@ import List from "./component/List.jsx"
 import Button from "./component/button.jsx";
 import Banner from "./component/Banner.jsx";
 import { getGamesData } from './component/GameData.js';
+import DisplayUser from "./component/DisplayUser.jsx";
 
 
 
@@ -12,7 +13,7 @@ const gamesData = getGamesData();
 
 function App() {
   const [filter, setFilter] = useState(false);
-  const [numerical, setnum] = useState("");
+  const [user, setuser] = useState("Guest");
  
 
 
@@ -70,9 +71,10 @@ function updateStock(gameTitle) {
 
   return (
     <>
-    
+      {<Button onClick={()=>setuser("Username")} hidden={user!=="Guest"} text={"Login"}></Button>}
+      {user!=="Guest"&& <DisplayUser user={user}></DisplayUser>}
       {games_.length > 0 && <Button text={"Filter"} onClick={switchFilter} ></Button>}
-      {games_.length > 0 ? <List stock={numerical} arr={games_} trigger={filter}></List> 
+      {games_.length > 0 ? <List stock={""} arr={games_} trigger={filter}></List> 
       : <Banner className="maintenance-banner" img_src="src\assets\maintenanceBanner.jpeg"></Banner>}
       
       <footer className="footer"><p>&copy;Mspeaker Productions</p></footer>
