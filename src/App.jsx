@@ -5,7 +5,8 @@ import Button from "./component/button.jsx";
 import Banner from "./component/Banner.jsx";
 import { getGamesData } from './component/GameData.js';
 import DisplayUser from "./component/DisplayUser.jsx";
-
+import Search from "./component/Search.jsx";
+import Filter from "./component/Filter.jsx";
 
 
 const gamesData = getGamesData();
@@ -73,7 +74,9 @@ function updateStock(gameTitle) {
     <>
       {<Button onClick={()=>setuser("Username")} hidden={user!=="Guest"} text={"Login"}></Button>}
       {user!=="Guest"&& <DisplayUser user={user}></DisplayUser>}
-      {games_.length > 0 && <Button text={"Filter"} onClick={switchFilter} ></Button>}
+      {<Search></Search>}<Filter></Filter>
+
+      {/* {games_.length > 0 && <Button text={"Filter"} onClick={switchFilter} ></Button>} */}
       {games_.length > 0 ? <List stock={""} arr={games_} trigger={filter}></List> 
       : <Banner className="maintenance-banner" img_src="src\assets\maintenanceBanner.jpeg"></Banner>}
       

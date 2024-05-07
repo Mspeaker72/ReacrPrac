@@ -40,10 +40,17 @@ body{
   max-width: 200px;
   max-height: 200px;
   object-fit: cover;
-  
-  
+}
 
 
+.Card .Card-img:hover{
+  border-width: 4px;
+  border-color: black;
+  border-radius: 5px;
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+  cursor: zoom-in;
 }
 
 .Card-button {
@@ -149,5 +156,32 @@ body{
   left: 0; 
   right: 0; 
   width: 100%; /* Take up the full width of the viewport */
+  
+}
+
+.user:hover{
+  text-align: left;
+  color:white;
+  display: inline-block;
+  cursor: pointer;
+  
+}
+
+
+.search {
+  float: right;
+  width: 10%;
+}
+
+.search input{
+  background-color:whitesmoke;
+  border-radius: 5px;
+}
+
+.Filter{
+  padding-right: 50px;
+  float: right;
+  width: 10px;
+  position: fixed;
   
 }
