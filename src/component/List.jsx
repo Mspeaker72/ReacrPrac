@@ -2,11 +2,14 @@ import Proptypes from "prop-types"
 
 function List ({arr , trigger,stock}){
 
+    if(arr.length>1){
+
     if(!trigger && stock===""){
         arr.sort((a,b)=>a.props.text.localeCompare(b.props.text))
     }else{
         arr.sort((a,b)=>b.props.text.localeCompare(a.props.text))
     }
+}
 
      
     //  once price is implemented  arr.sort((a,b)=>a.props.price - b.props.price))

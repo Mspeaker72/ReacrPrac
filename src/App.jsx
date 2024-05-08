@@ -12,11 +12,14 @@ import Filter from "./component/Filter.jsx";
 const gamesData = getGamesData();
 
 
+
+
 function App() {
   const [filter, setFilter] = useState(false);
   const [user, setuser] = useState("Guest");
+  
+  
  
-
 
   function soldOut(text) {
     alert(text+" is sold out!")
@@ -35,6 +38,7 @@ function App() {
   </Card>));
 
   const [games_, setGames] = useState(games);
+  const [originalGamesData,setoriginalGamesData]=useState(games)
 
 // This function updates the stock of a specific game in the games list.
 // It takes the game title as a parameter and decrements the stock for that game.
@@ -70,12 +74,28 @@ function updateStock(gameTitle) {
   
 }
 
+
+function searchTitle(gameTitle) {
+  if (gameTitle.trim() === "") {
+    setGames(originalGamesData);
+    return;
+  }
+
+  setGames(prevGames => {
+    const filteredGameCards = prevGames.filter(card => card.props.text === gameTitle);
+    return filteredGameCards;
+  });
+}
+
+
+
+
+
   return (
     <>
       {<Button onClick={()=>setuser("Username")} hidden={user!=="Guest"} text={"Login"}></Button>}
       {user!=="Guest"&& <DisplayUser user={user}></DisplayUser>}
-      {<Search></Search>}<Filter></Filter>
-
+      {<Search onSearch={searchTitle}></Search>}<Filter></Filter>
       {/* {games_.length > 0 && <Button text={"Filter"} onClick={switchFilter} ></Button>} */}
       {games_.length > 0 ? <List stock={""} arr={games_} trigger={filter}></List> 
       : <Banner className="maintenance-banner" img_src="src\assets\maintenanceBanner.jpeg"></Banner>}
