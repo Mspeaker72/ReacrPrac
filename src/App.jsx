@@ -15,19 +15,18 @@ const gamesData = getGamesData();
 
 
 function App() {
-  const [filter, setFilter] = useState(false);
+  const [filter, setFilter] = useState("default");
   const [user, setuser] = useState("Guest");
   
   
- 
-
   function soldOut(text) {
     alert(text+" is sold out!")
    
   }
 
-  function switchFilter() {
-    setFilter(prevFilter => !prevFilter);
+  function switchFilter(selection) {
+    setFilter(selection);
+    console.log(filter)
   }
 
   const games =  gamesData.map((game)=>(<Card availability={game.stock>0}
@@ -90,14 +89,14 @@ function searchTitle(gameTitle) {
 
 
 
-
   return (
     <>
       {<Button onClick={()=>setuser("Username")} hidden={user!=="Guest"} text={"Login"}></Button>}
       {user!=="Guest"&& <DisplayUser user={user}></DisplayUser>}
-      {<Search onSearch={searchTitle}></Search>}<Filter></Filter>
+      {<Search onSearch={searchTitle}></Search>}
+      <Filter filter={filter} onSelection={switchFilter}></Filter>
       {/* {games_.length > 0 && <Button text={"Filter"} onClick={switchFilter} ></Button>} */}
-      {games_.length > 0 ? <List stock={""} arr={games_} trigger={filter}></List> 
+      {games_.length > 0 ? <List arr={games_} filter={filter}></List> 
       : <Banner className="maintenance-banner" img_src="src\assets\maintenanceBanner.jpeg"></Banner>}
       
       <footer className="footer"><p>&copy;Mspeaker Productions</p></footer>

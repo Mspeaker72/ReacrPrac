@@ -1,21 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function Filter() {
+function Filter({ onSelection, filter }) {
+    const [filterType, setFilter] = useState(filter);
 
-    const [filterType,setFilter]=useState("")
+    useEffect(() => {
+        // Call the onSelection callback whenever the filterType changes
+        // onSelecttion doesn't change but i'd have to add it to array if it did
+        onSelection(filterType);
+    }, [filterType]);
 
-    function handleFilterChange(event){
-        setFilter(event.target.value)
+    function handleFilterChange(event) {
+        const selectedFilter = event.target.value;
+        setFilter(selectedFilter);
     }
 
-    return <div className="Filter">
-    <select  value={filterType} onChange={handleFilterChange}>
-        <option value={""}>Filters</option>
-        <option value={"sales"}>sales</option>
-        <option value={"new"}>new</option>
-    </select>
-    {/* <p>current filiter : {filterType}</p> */}
-    </div>
+    return (
+        <div className="Filter">
+            <select value={filterType} onChange={handleFilterChange}>
+                <option value="default">Default</option>
+                <option value="desc">Desc</option>
+            </select>
+        </div>
+    );
 }
 
 export default Filter;

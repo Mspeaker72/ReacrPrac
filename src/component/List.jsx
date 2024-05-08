@@ -1,14 +1,16 @@
 import Proptypes from "prop-types"
 
-function List ({arr , trigger,stock}){
+function List ({arr , filter}){
 
-    if(arr.length>1){
-
-    if(!trigger && stock===""){
+   
+    if(filter==="default"){
         arr.sort((a,b)=>a.props.text.localeCompare(b.props.text))
-    }else{
-        arr.sort((a,b)=>b.props.text.localeCompare(a.props.text))
     }
+    
+    if(filter==="desc")
+    {
+        arr.sort((a,b)=>b.props.text.localeCompare(a.props.text))
+    
 }
 
      

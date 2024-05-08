@@ -5,17 +5,20 @@ function Search({ onSearch }) {
 
     function handleSearch(event) {
         setTerm(event.target.value);
+        if(term.length<5){
+            onSearch("");
+        }
     }
 
     function handleSubmission(event) {
         if (event.key === "Enter") {
-            if (term.trim() !== "") {
+            if (term.trim() !== "" && term.length >= 3) {
                 console.log(term);
-                onSearch(term); // Call the onSearch function with the search term
+                onSearch(term); 
             } else {
-                // If the search term is empty, perform the reset action here
-                alert("please enter a valid game name")
-                onSearch(""); // Reset the list (pass an empty string as the search term)
+                
+                alert("Please Enter at least three characters for search")
+                onSearch("");
             }
         }
     }
